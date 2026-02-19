@@ -4,4 +4,4 @@ title = "Preparando..."
 theme = "ananke"
 
 [params]
-customCSS = ["/nikki/css/style.css"]
+customCSS = ["css/style.css"]
