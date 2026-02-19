@@ -1,7 +1,7 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Preparando...'
+baseURL = "https://taitootsu-timba.github.io/nikki/"
+languageCode = "ja"
+title = "Preparando..."
 theme = "ananke"
-[params]
-customCSS = ["/css/style.css"]
 
+[params]
+customCSS = ["/nikki/css/style.css"]
