@@ -1,0 +1,7 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Preparando...'
+theme = "ananke"
+[params]
+customCSS = ["css/style.css"]
+
