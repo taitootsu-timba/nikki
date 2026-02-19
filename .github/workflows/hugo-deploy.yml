@@ -6,43 +6,36 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write   # ← これが超重要（gh-pages に push できる）
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # リポジトリをチェックアウト
+      # リポジトリを取得
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: true  # submodule も取得
+          submodules: true
 
-      # Hugo をセットアップ
+      # Hugo セットアップ
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.155.3'
           extended: true
 
-      # キャッシュ（オプションだけど早くなる）
-      - name: Cache Hugo
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.hugo/cache
-            resources/_gen
-          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.mod') }}
-          restore-keys: |
-            ${{ runner.os }}-hugo-
-
-      # Hugo でサイト生成
+      # Hugo ビルド
       - name: Build
         run: hugo --minify
 
-      # gh-pages ブランチにデプロイ
+      # gh-pages ブランチへデプロイ
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
+
