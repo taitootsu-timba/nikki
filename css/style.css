@@ -1,0 +1,105 @@
+/* ===== 全体設定 ===== */
+body {
+  background-color: #93a4ae;
+  color: #000000;
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 20px;
+  line-height: 1.9;
+  margin: 0;
+  padding: 0px 24px;
+}
+
+/* ===== サイトタイトル（細身化＋カーニング） ===== */
+.site-title,
+h1 {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 54px;
+  letter-spacing: 0.02em;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  max-width: 1400px;
+  margin: 0 auto 64px auto;
+  color: #c8d7ca;
+}
+
+/* ===== 記事タイトル（源ノ角） ===== */
+.post-title,
+h2 {
+  font-family: "Source Han Sans JP", "Yu Mincho", "Noto Serif JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 34px;
+  margin-top: 72px;
+  margin-bottom: 12px;
+  color: #c1d4cc;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== 本文ブロック（源ノ角） ===== */
+.post-content,
+.content,
+article {
+  font-family: "Source Han Sans JP", "Yu Mincho", "Noto Serif JP", sans-serif;
+  font-size: 20px;
+  color: #000000;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: -0.02em; /* 文字間を少し詰める */
+}
+
+/* ===== 記事内見出し ===== */
+.post-content h3,
+.post-content h4 {
+  font-style: italic;
+  font-weight: 400;
+  color: #000000;
+  margin-left: 0;
+  margin-top: 0.1em;
+  margin-bottom: 0.25em;
+}
+
+/* ===== リンク ===== */
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== 投稿日（非表示） ===== */
+.post-date,
+.meta,
+time {
+  display: none;
+}
+
+/* ===== スマホ ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 32px 16px;
+  }
+
+  .site-title,
+  h1 {
+    font-size: 48px;
+  }
+
+  .post-title,
+  h2 {
+    font-size: 26px;
+  }
+
+  .post-content,
+  .content,
+  article {
+    font-size: 18px;
+    max-width: 100%;
+  }
+}
