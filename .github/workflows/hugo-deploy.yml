@@ -3,26 +3,29 @@ name: Hugo Deploy
 on:
   push:
     branches:
-      - main
+      - main  # main ブランチに push されたときに動く
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: リポジトリをチェックアウト
+      - name: リポジトリをチェックアウト（サブモジュール込み）
         uses: actions/checkout@v3
+        with:
+          submodules: true  # ここが重要！サブモジュールも取得
+          recursive: true
 
       - name: Hugo セットアップ
-        uses: peaceiris/actions-hugo@v3.0.0
+        uses: peaceiris/actions-hugo@v5
         with:
-          hugo-version: '0.155.3'
+          hugo-version: '0.155.3'  # あなたの Hugo バージョンに合わせる
 
       - name: Hugo ビルド
         run: hugo --minify
 
       - name: GitHub Pages にデプロイ
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
