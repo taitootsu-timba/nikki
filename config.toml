@@ -3,5 +3,5 @@ languageCode = 'en-us'
 title = 'Preparando...'
 theme = "ananke"
 [params]
-customCSS = ["css/style.css"]
+customCSS = ["/css/style.css"]
 
