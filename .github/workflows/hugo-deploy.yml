@@ -1,31 +1,48 @@
-name: Hugo Deploy
+name: build-deploy
 
 on:
   push:
     branches:
-      - main  # main ブランチに push されたときに動く
+      - main
+  workflow_dispatch:
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: リポジトリをチェックアウト（サブモジュール込み）
+      # リポジトリをチェックアウト
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: true  # ここが重要！サブモジュールも取得
-          recursive: true
+          submodules: true  # submodule も取得
 
-      - name: Hugo セットアップ
-        uses: peaceiris/actions-hugo@v5
+      # Hugo をセットアップ
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.155.3'  # あなたの Hugo バージョンに合わせる
+          hugo-version: '0.155.3'
+          extended: true
 
-      - name: Hugo ビルド
+      # キャッシュ（オプションだけど早くなる）
+      - name: Cache Hugo
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.hugo/cache
+            resources/_gen
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.mod') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      # Hugo でサイト生成
+      - name: Build
         run: hugo --minify
 
-      - name: GitHub Pages にデプロイ
+      # gh-pages ブランチにデプロイ
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          publish_branch: gh-pages
