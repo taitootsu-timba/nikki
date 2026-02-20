@@ -5,3 +5,8 @@ theme = "ananke"
 
 [params]
 customCSS = ["css/style.css"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
