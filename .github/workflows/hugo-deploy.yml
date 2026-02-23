@@ -7,35 +7,35 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # ← これが超重要（gh-pages に push できる）
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # リポジトリを取得
+      # リポジトリ取得（submodule無効）
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: false
+          fetch-depth: 0
 
       # Hugo セットアップ
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.155.3'
           extended: true
 
-      # Hugo ビルド
+      # ビルド
       - name: Build
         run: hugo --minify
 
-      # gh-pages ブランチへデプロイ
+      # gh-pages にデプロイ
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-
