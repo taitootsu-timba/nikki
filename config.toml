@@ -2,6 +2,7 @@ baseURL = "https://taitootsu-timba.github.io/nikki/"
 languageCode = "ja"
 title = "Preparando..."
 theme = "ananke"
+uglyURLs = false
 
 [params]
 customCSS = ["css/style.css"]
