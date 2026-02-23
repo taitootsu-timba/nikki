@@ -3,6 +3,7 @@ languageCode = "ja"
 title = "Preparando..."
 theme = "ananke"
 uglyURLs = false
+canonifyURLs = true
 
 [params]
 customCSS = ["css/style.css"]
