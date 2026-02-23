@@ -30,7 +30,7 @@ jobs:
 
       # ビルド
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --baseURL "https://taitootsu-timba.github.io/nikki/"
 
       # gh-pages にデプロイ
       - name: Deploy
