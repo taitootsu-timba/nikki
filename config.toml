@@ -7,7 +7,7 @@ uglyURLs = false
 canonifyURLs = true
 
 [params]
-custom_CSS = ["css/style.css"]
+custom_css = ["css/style.css"]
 
 [markup]
   [markup.goldmark]
