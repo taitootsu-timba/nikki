@@ -1,4 +1,5 @@
-baseURL = "https://taitootsu-timba.github.io/nikki/"
+baseURL = "/nikki/"
+relativeURLs = false
 languageCode = "ja"
 title = "Preparando..."
 theme = "ananke"
