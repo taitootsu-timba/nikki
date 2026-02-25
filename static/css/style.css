@@ -1,7 +1,7 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Sans+JP:wght@100;400;700&family=Noto+Serif+JP:wght@400;700&display=swap');
 
-/* ===== 1. 全体レイアウト（中央寄せ & 基本の余白リセット） ===== */
+/* ===== 1. 全体レイアウト ===== */
 main, header, header > div, footer, 
 article, .nested-links, .site-header-inner,
 section.w-100, .relative.w-100,
@@ -41,7 +41,7 @@ header { padding: 40px 0 20px 0 !important; }
   display: flex !important;
   justify-content: flex-end !important;
   gap: 3rem !important;
-  padding-right: 0.2rem !important; /* ★右端の基準 */
+  padding-right: 0.2rem !important;
   margin-top: 5px !important;
 }
 .nav-link {
@@ -51,24 +51,43 @@ header { padding: 40px 0 20px 0 !important; }
   text-decoration: none !important;
 }
 
-/* ===== 4. 記事見出し（Georgia） ===== */
-h1, h2, h3, .post-title, .post-title a {
-  font-family: Georgia, serif !important;
-  font-style: italic !important;
+/* ===== 4. 記事見出し（日付とタイトルの個別指定） ===== */
+h1, h2, h3, .post-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;        /* 横並びにするわよ */
+  flex-direction:column !important;
+  align-items: baseline !important; /* 下端を揃えるわよ */
+  flex-wrap: wrap !important;      /* スマホで溢れないように */
+}
+
+/* タイトル部分 */
+.post-title a, body.single h1.post-title {
+  font-family: "Noto Serif JP", serif !important;
+  font-style: normal !important;
+  font-size: 23px !important;
   font-weight: 400 !important;
   color: #000000 !important;
   text-decoration: none !important;
   line-height: 1.1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
 }
-h1::before, h2::before, h3::before, .post-title::before { content: none !important; }
+
+/* 日付部分（span要素への別指定） */
+.post-title span.mr3 {
+  font-family: Georgia, serif !important; /* 等幅フォントでクールに */
+  font-weight: 300 !important;
+  font-size: 25px !important;
+  font-style: italic !important;   
+  color: #000000 !important;       
+  margin-right: 1rem !important;
+  flex-shrink: 0 !important;
+}
 
 body:not(.single) .post-title {
   font-size: 27px !important;
-  margin-bottom: -25px !important;
+  margin-bottom: 1.5rem !important; /* 被らないように適切な余白を */
 }
+
 body.single h1.post-title {
   font-size: 97px !important;
   word-break: break-all;
@@ -76,20 +95,19 @@ body.single h1.post-title {
 
 /* ===== 5. 本文・コンテンツ ===== */
 .post-content p, article p, .nested-copy-line-height p {
-  font-family: "Noto Sans JP", sans-serif !important;
+  font-family: "Noto Serif JP", serif !important; /* Zineなら明朝体でしょ！ */
   font-size: 20px !important;
   text-align: left !important;
   margin: 1rem 0 1.8rem 0 !important;
   padding: 0 !important;
 }
 
-/* ===== 6. アーカイブ & プロフィール共通ヘッダー ===== */
+/* ===== 6. アーカイブ & プロフィール共通 ===== */
 .archive-header, .profile-header {
   text-align: right !important;
   margin-top: -2.3rem !important; 
   margin-bottom: 0 !important;
-  padding-right: 1.5rem !important; /* ナビの右端と同期 */
-  margin-right: 0 !important;
+  padding-right: 1.5rem !important;
 }
 
 .archive-title-small, .profile-title-small {
@@ -98,12 +116,10 @@ body.single h1.post-title {
   font-size: 17px !important; 
   color: #000000 !important;
   letter-spacing: 0.1em !important;
-  margin: 0 !important;
   margin-bottom: 1.5rem !important;
   display: inline-block !important;
-  padding: 0 !important;
-  padding-right: 4px !important; /* 魔法の 4px よ */
 }
+
 .month-label {
   font-family: Georgia, serif !important;
   font-style: italic;
@@ -131,7 +147,6 @@ body.single h1.post-title {
   display: inline-block;
   transition: color 0.3s;
 }
-
 .archive-list a:hover { color: #c1d4cc !important; }
 
 /* ===== 7. レスポンシブ調整 ===== */
@@ -148,6 +163,10 @@ body.single h1.post-title {
 }
 
 /* ===== 8. 不要要素の抹殺 & フッター ===== */
-.post-date, .meta, .f6, .ananke-socials, aside, .more-link, header div.bg-black, .bg-black-60, .black-70 { display: none !important; }
+/* .post-date と .silver は消さないようにリストから抜いておいたわよ */
+.meta, .f6, .ananke-socials, aside, .more-link, header div.bg-black, .bg-black-60, .black-70 { display: none !important; }
 footer { padding: 10rem 0 2rem 0 !important; }
 footer p { text-align: right !important; color: #c1d4cc !important; font-size: 14px !important; font-family: "Bodoni Moda", serif; }
+
+
+
