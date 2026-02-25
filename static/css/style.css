@@ -41,7 +41,8 @@ header { padding: 40px 0 20px 0 !important; }
   display: flex !important;
   justify-content: flex-end !important;
   gap: 3rem !important;
-  padding-right: 0.4rem !important; /* ★右端の基準 */
+  padding-right: 0.2rem !important; /* ★右端の基準 */
+  margin-top: 5px !important;
 }
 .nav-link {
   font-family: "Noto Serif JP", serif !important;
@@ -82,16 +83,16 @@ body.single h1.post-title {
   padding: 0 !important;
 }
 
-/* ===== 6. アーカイブページ専用 ===== */
-.archive-header {
+/* ===== 6. アーカイブ & プロフィール共通ヘッダー ===== */
+.archive-header, .profile-header {
   text-align: right !important;
-  margin-top: -2.3rem !important;
+  margin-top: -2.3rem !important; 
   margin-bottom: 0 !important;
-  padding-right: 1.5rem !important; /* ★ナビの右端と同期 */
+  padding-right: 1.5rem !important; /* ナビの右端と同期 */
   margin-right: 0 !important;
 }
 
-.archive-title-small {
+.archive-title-small, .profile-title-small {
   font-family: "Noto Serif JP", serif !important;
   font-style: normal !important;
   font-size: 17px !important; 
@@ -100,15 +101,9 @@ body.single h1.post-title {
   margin: 0 !important;
   margin-bottom: 1.5rem !important;
   display: inline-block !important;
-
-  /* 『padding: 0』なんて言ってるからズレる！ */
-  /* ナビの文字の「座り」に合わせるために、右側に微量の隙間を入れ */
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 4px !important; /* ←★ この「3px」が、魔法の数値よ */
+  padding: 0 !important;
+  padding-right: 4px !important; /* 魔法の 4px よ */
 }
-
 .month-label {
   font-family: Georgia, serif !important;
   font-style: italic;
