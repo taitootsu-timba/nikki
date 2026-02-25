@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="mw8 center ph3 ph5-l">
+  <header class="archive-header">
+    <div class="archive-title-small">過去</div>
+  </header>
+
+  <section class="archive-list">
+    {{ range (.Site.RegularPages.GroupByDate "2006-01") }}
+      <div class="archive-month-block mb4">
+        <h2 class="month-label">{{ .Key }}</h2>
+        <ul class="list pl0">
+          {{ range .Pages }}
+            <li class="mb2">
+              <article class="border-bottom-dotted">
+                <h3 class="archive-post-title ma0">
+                  <a href="{{ .RelPermalink }}" class="link">
+                    {{ .Title }}
+                  </a>
+                </h3>
+              </article>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

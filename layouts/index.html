@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <div class="mw8 center ph3 ph5-l">
+    
+    <nav class="top-nav-grid">
+      <section class="nav-item">
+        <a href="/profile/" class="nav-link">概要</a>
+      </section>
+      <section class="nav-item">
+        <a href="/archive/" class="nav-link">過去</a>
+      </section>
+    </nav>
+
+    <article class="top-profile-text">
+      {{ .Content }}
+    </article>
+
+    <section class="posts-stream mt5">
+      {{ range (where .Site.RegularPages "Section" "posts") }}
+        <article class="post-item mb6">
+          <header class="mb4">
+            <h2 class="post-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+          </header>
+          <div class="post-content lh-copy">
+            {{ .Content }}
+          </div>
+        </article>
+      {{ end }}
+    </section>
+
+  </div>
+{{ end }}

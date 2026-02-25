@@ -1,0 +1,14 @@
+<div class="w-100 mb4 nested-copy-line-height relative">
+  <div class="mb3 gray overflow-hidden">
+    {{with .CurrentSection.Title }}<span class="f6 db">{{ . }}</span>{{end}}
+    <h1 class="f3 near-black">
+      <a href="{{ .RelPermalink }}" class="link">
+        {{ .Title }}
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      ★ここが全文★
+      {{ .Content }}
+    </div>
+    </div>
+</div>

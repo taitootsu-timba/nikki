@@ -2,12 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/nikki/posts/first-post/</loc>
+    <lastmod>2026-02-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/nikki/posts/</loc>
+    <lastmod>2026-02-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/nikki/</loc>
+    <lastmod>2026-02-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/nikki/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/nikki/</loc>
-  </url><url>
     <loc>http://localhost:1313/nikki/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/nikki/profile/</loc>
+  </url><url>
+    <loc>http://localhost:1313/nikki/archive/</loc>
   </url>
 </urlset>

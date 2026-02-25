@@ -1,105 +1,186 @@
-/* ===== 全体設定 ===== */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Sans+JP:wght@100;400;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+/* ===== 1. 全体設定 ===== */
 body {
-  background-color: #93a4ae;
-  color: #000000;
-  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  background-color: #93a4ae !important;
+  color: #000000 !important;
+  font-family: "Noto Serif JP", serif;
   font-size: 20px;
   line-height: 1.9;
   margin: 0;
-  padding: 0px 24px;
+  padding: 0;
 }
 
-/* ===== サイトタイトル（細身化＋カーニング） ===== */
-.site-title,
-h1 {
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-weight: 400;
+header, .bg-black, .bg-black-60, .black-70, header nav, header div {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  min-height: 0 !important;
+}
+
+main, .mw8, .center, section.w-100, article, .top-section, .top-nav-grid, .top-profile-text, .site-header-inner, footer {
+  max-width: 520px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ===== 2. サイトヘッダー ===== */
+header {
+  padding: 40px 0 20px 0 !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.site-title {
+  font-family: "Bodoni Moda", serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: 42px !important;
+  color: #c1d4cc !important;
+  text-decoration: none !important;
+  margin-left: -3rem !important; 
+  display: inline-block !important;
+}
+
+/* ===== 3. ナビゲーション ===== */
+.top-nav-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  gap: 3rem !important;
+  margin: 0rem auto 0rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.nav-link {
+  font-family: "Noto Serif JP", serif !important;
+  font-size: 17px !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #c1d4cc !important;
+}
+
+/* ===== 4. 記事見出し（Georgia） ===== */
+h1, h2, .post-title, h1 a, h2 a {
+  font-family: Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+  line-height: 1.1 !important;
+}
+
+/* 一覧ページ等の標準サイズ */
+body:not(.single) .post-title, 
+body:not(.single) h2 a {
+  font-size: 27px !important;
+  margin-bottom: -25px;
+}
+
+/* 個別記事ページのモンスター級タイトル */
+body.single h1.post-title {
+  font-size: 97px !important;
+  margin: 0px 0px 0px 0px !important;
+  word-break: break-all;
+}
+
+/* ===== 5. 本文・コンテンツ ===== */
+.post-content p, article p, .nested-copy-line-height p {
+  font-family: "Noto Sans JP", sans-serif !important;
+  font-size: 20px !important;
+  text-align: left !important;
+  margin-bottom: 1.8rem;
+}
+
+/* ===== 6. アーカイブページ専用（タグ変更対応版） ===== */
+
+/* アーカイブページのヘッダー（親要素） */
+.archive-header {
+  text-align: left !important; /* 中身を右に寄せる */
+  margin-top: -2rem !important;
+  margin-bottom: -2rem !important;
+}
+
+
+/* 「過去」の文字デザイン */
+.archive-title-small {
+  font-family: "Noto Serif JP", serif !important;
+  font-style: normal !important;
+  font-size: 18px !important; 
+  color: #000000 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: -3rem !important;
+  display: inline-block !important;
+}
+
+.month-label {
+  font-family: Georgia, serif !important;
   font-style: italic;
-  font-size: 54px;
-  letter-spacing: 0.02em;
-  font-kerning: normal;
-  text-rendering: optimizeLegibility;
-  max-width: 1400px;
-  margin: 0 auto 64px auto;
-  color: #c8d7ca;
+  font-size: 1.5rem;
+  color: #c1d4cc !important;
+  border-left: 2px solid #c1d4cc;
+  padding-left: 15px;
+  margin: 4rem 0 -2rem;
 }
 
-/* ===== 記事タイトル（源ノ角） ===== */
-.post-title,
-h2 {
-  font-family: "Source Han Sans JP", "Yu Mincho", "Noto Serif JP", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 34px;
-  margin-top: 72px;
-  margin-bottom: 12px;
-  color: #c1d4cc;
-  max-width: 920px;
-  margin-left: auto;
-  margin-right: auto;
+/* ドットの抹殺 */
+.archive-list ul, .archive-list li {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* ===== 本文ブロック（源ノ角） ===== */
-.post-content,
-.content,
-article {
-  font-family: "Source Han Sans JP", "Yu Mincho", "Noto Serif JP", sans-serif;
-  font-size: 20px;
-  color: #000000;
-  max-width: 920px;
-  margin-left: auto;
-  margin-right: auto;
-  letter-spacing: -0.02em; /* 文字間を少し詰める */
-}
-
-/* ===== 記事内見出し ===== */
-.post-content h3,
-.post-content h4 {
+/* アーカイブ記事リンク */
+.archive-list a {
+  font-family: Georgia, serif !important;
   font-style: italic;
+  color: #000000 !important;
+  text-decoration: none !important;
+  font-size: 20px !important; 
   font-weight: 400;
-  color: #000000;
-  margin-left: 0;
-  margin-top: 0.1em;
-  margin-bottom: 0.25em;
+  transition: color 0.3s;
 }
 
-/* ===== リンク ===== */
-a {
-  color: #000000;
-  text-decoration: none;
+.archive-list a:hover {
+  color: #c1d4cc !important;
 }
 
-a:hover {
-  text-decoration: underline;
+.border-bottom-dotted {
+  border-bottom: 1px dotted rgba(0,0,0,0.1);
+  padding: 4px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* ===== 投稿日（非表示） ===== */
-.post-date,
-.meta,
-time {
-  display: none;
+/* ===== 7. フッター ===== */
+footer {
+  padding: 10rem 0 2rem 0 !important;
 }
 
-/* ===== スマホ ===== */
-@media (max-width: 600px) {
-  body {
-    padding: 32px 16px;
-  }
+footer p {
+  text-align: right !important;
+  font-style: italic !important;
+  color: #c1d4cc !important;
+  font-size: 14px !important;
+  font-family: "Bodoni Moda", serif;
+}
 
-  .site-title,
-  h1 {
-    font-size: 48px;
-  }
+/* ===== 8. 要素の抹殺 ===== */
+time, .post-date, .meta, .f6, .ananke-socials, 
+aside, [class*="helvetica"].tracked.ttu, .more-link, .silver {
+  display: none !important;
+  visibility: hidden !important;
+}
 
-  .post-title,
-  h2 {
-    font-size: 26px;
-  }
-
-  .post-content,
-  .content,
-  article {
-    font-size: 18px;
-    max-width: 100%;
-  }
+/* ===== 9. レスポンシブ ===== */
+@media (max-width: 920px) {
+  .site-title { margin-left: 0 !important; padding-left: 20px; }
+  .top-nav-grid, footer { padding-left: 20px; padding-right: 20px; }
 }

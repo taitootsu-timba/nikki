@@ -1,4 +1,4 @@
-baseURL = "/nikki/"
+baseURL = "https://taitootsu-timba.github.io/nikki/"
 relativeURLs = false
 languageCode = "ja"
 title = "Preparando..."
@@ -7,7 +7,8 @@ uglyURLs = false
 canonifyURLs = true
 
 [params]
-custom_css = ["css/style.css"]
+  custom_css = ["css/style.css"]
+  mainSections = ["posts"]
 
 [markup]
   [markup.goldmark]
