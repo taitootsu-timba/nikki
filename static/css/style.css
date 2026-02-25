@@ -1,7 +1,20 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Sans+JP:wght@100;400;700&family=Noto+Serif+JP:wght@400;700&display=swap');
 
-/* ===== 1. 全体設定 ===== */
+/* ===== 1. 全体レイアウト（中央寄せ & 基本の余白リセット） ===== */
+main, header, header > div, footer, 
+article, .nested-links, .site-header-inner,
+section.w-100, .relative.w-100,
+[class*="ph"], [class*="pa"] {
+  max-width: 520px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  display: block !important;
+}
+
 body {
   background-color: #93a4ae !important;
   color: #000000 !important;
@@ -9,29 +22,10 @@ body {
   font-size: 20px;
   line-height: 1.9;
   margin: 0;
-  padding: 0;
 }
 
-header, .bg-black, .bg-black-60, .black-70, header nav, header div {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  min-height: 0 !important;
-}
-
-main, .mw8, .center, section.w-100, article, .top-section, .top-nav-grid, .top-profile-text, .site-header-inner, footer {
-  max-width: 520px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ===== 2. サイトヘッダー ===== */
-header {
-  padding: 40px 0 20px 0 !important;
-  display: block !important;
-  width: 100% !important;
-}
-
+/* ===== 2. ヘッダー & 3. ナビゲーション ===== */
+header { padding: 40px 0 20px 0 !important; }
 .site-title {
   font-family: "Bodoni Moda", serif !important;
   font-style: italic !important;
@@ -39,54 +33,43 @@ header {
   font-size: 42px !important;
   color: #c1d4cc !important;
   text-decoration: none !important;
-  margin-left: -3rem !important; 
   display: inline-block !important;
+  margin-left: -45px !important; 
+  padding-left: 0 !important;
 }
-
-/* ===== 3. ナビゲーション ===== */
 .top-nav-grid {
   display: flex !important;
-  flex-direction: row !important;
   justify-content: flex-end !important;
   gap: 3rem !important;
-  margin: 0rem auto 0rem !important;
-  padding-right: 1.5rem !important;
+  padding-right: 0.4rem !important; /* ★右端の基準 */
 }
-
 .nav-link {
   font-family: "Noto Serif JP", serif !important;
-  font-size: 17px !important;
+  font-size: 18px !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  font-weight: 400 !important;
   text-decoration: none !important;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #c1d4cc !important;
 }
 
 /* ===== 4. 記事見出し（Georgia） ===== */
-h1, h2, .post-title, h1 a, h2 a {
+h1, h2, h3, .post-title, .post-title a {
   font-family: Georgia, serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
   color: #000000 !important;
   text-decoration: none !important;
   line-height: 1.1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
 }
+h1::before, h2::before, h3::before, .post-title::before { content: none !important; }
 
-/* 一覧ページ等の標準サイズ */
-body:not(.single) .post-title, 
-body:not(.single) h2 a {
+body:not(.single) .post-title {
   font-size: 27px !important;
-  margin-bottom: -25px;
+  margin-bottom: -25px !important;
 }
-
-/* 個別記事ページのモンスター級タイトル */
 body.single h1.post-title {
   font-size: 97px !important;
-  margin: 0px 0px 0px 0px !important;
   word-break: break-all;
 }
 
@@ -95,29 +78,35 @@ body.single h1.post-title {
   font-family: "Noto Sans JP", sans-serif !important;
   font-size: 20px !important;
   text-align: left !important;
-  margin-bottom: 1.8rem;
+  margin: 1rem 0 1.8rem 0 !important;
+  padding: 0 !important;
 }
 
-/* ===== 6. アーカイブページ専用（タグ変更対応版） ===== */
-
-/* アーカイブページのヘッダー（親要素） */
+/* ===== 6. アーカイブページ専用 ===== */
 .archive-header {
-  text-align: left !important; /* 中身を右に寄せる */
-  margin-top: -2rem !important;
-  margin-bottom: -2rem !important;
+  text-align: right !important;
+  margin-top: -2.3rem !important;
+  margin-bottom: 0 !important;
+  padding-right: 1.5rem !important; /* ★ナビの右端と同期 */
+  margin-right: 0 !important;
 }
 
-
-/* 「過去」の文字デザイン */
 .archive-title-small {
   font-family: "Noto Serif JP", serif !important;
   font-style: normal !important;
-  font-size: 18px !important; 
+  font-size: 17px !important; 
   color: #000000 !important;
-  font-weight: 400 !important;
   letter-spacing: 0.1em !important;
-  margin-bottom: -3rem !important;
+  margin: 0 !important;
+  margin-bottom: 1.5rem !important;
   display: inline-block !important;
+
+  /* 『padding: 0』なんて言ってるからズレる！ */
+  /* ナビの文字の「座り」に合わせるために、右側に微量の隙間を入れ */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 4px !important; /* ←★ この「3px」が、魔法の数値よ */
 }
 
 .month-label {
@@ -126,61 +115,45 @@ body.single h1.post-title {
   font-size: 1.5rem;
   color: #c1d4cc !important;
   border-left: 2px solid #c1d4cc;
-  padding-left: 15px;
-  margin: 4rem 0 -2rem;
+  padding-left: 20px !important;
+  margin: 1.5rem 0 1rem !important; 
+  display: block !important;
 }
 
-/* ドットの抹殺 */
 .archive-list ul, .archive-list li {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-/* アーカイブ記事リンク */
 .archive-list a {
   font-family: Georgia, serif !important;
   font-style: italic;
   color: #000000 !important;
   text-decoration: none !important;
   font-size: 20px !important; 
-  font-weight: 400;
+  padding-left: 19px !important;
+  display: inline-block;
   transition: color 0.3s;
 }
 
-.archive-list a:hover {
-  color: #c1d4cc !important;
-}
+.archive-list a:hover { color: #c1d4cc !important; }
 
-.border-bottom-dotted {
-  border-bottom: 1px dotted rgba(0,0,0,0.1);
-  padding: 4px 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* ===== 7. フッター ===== */
-footer {
-  padding: 10rem 0 2rem 0 !important;
-}
-
-footer p {
-  text-align: right !important;
-  font-style: italic !important;
-  color: #c1d4cc !important;
-  font-size: 14px !important;
-  font-family: "Bodoni Moda", serif;
-}
-
-/* ===== 8. 要素の抹殺 ===== */
-time, .post-date, .meta, .f6, .ananke-socials, 
-aside, [class*="helvetica"].tracked.ttu, .more-link, .silver {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-/* ===== 9. レスポンシブ ===== */
+/* ===== 7. レスポンシブ調整 ===== */
 @media (max-width: 920px) {
-  .site-title { margin-left: 0 !important; padding-left: 20px; }
-  .top-nav-grid, footer { padding-left: 20px; padding-right: 20px; }
+  main, header, footer, .top-nav-grid { 
+    padding-left: 20px !important; 
+    padding-right: 20px !important; 
+    box-sizing: border-box !important;
+  }
+  article, .post-title, p, .site-title {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
 }
+
+/* ===== 8. 不要要素の抹殺 & フッター ===== */
+time, .post-date, .meta, .f6, .ananke-socials, aside, .more-link, .silver,
+header div.bg-black, .bg-black-60, .black-70 { display: none !important; }
+footer { padding: 10rem 0 2rem 0 !important; }
+footer p { text-align: right !important; color: #c1d4cc !important; font-size: 14px !important; font-family: "Bodoni Moda", serif; }
