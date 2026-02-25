@@ -148,7 +148,6 @@ body.single h1.post-title {
 }
 
 /* ===== 8. 不要要素の抹殺 & フッター ===== */
-time, .post-date, .meta, .f6, .ananke-socials, aside, .more-link, .silver,
-header div.bg-black, .bg-black-60, .black-70 { display: none !important; }
+.post-date, .meta, .f6, .ananke-socials, aside, .more-link, header div.bg-black, .bg-black-60, .black-70 { display: none !important; }
 footer { padding: 10rem 0 2rem 0 !important; }
 footer p { text-align: right !important; color: #c1d4cc !important; font-size: 14px !important; font-family: "Bodoni Moda", serif; }
