@@ -65,7 +65,7 @@ h1, h2, h3, .post-title {
 .post-title a, body.single h1.post-title {
   font-family: "Noto Serif JP", serif !important;
   font-style: normal !important;
-  font-size: 23px !important;
+  font-size: 21px !important;
   font-weight: 400 !important;
   color: #000000 !important;
   text-decoration: none !important;
@@ -74,8 +74,8 @@ h1, h2, h3, .post-title {
 
 /* 日付部分（span要素への別指定） */
 .post-title span.mr3 {
-  font-family: Georgia, serif !important; /* 等幅フォントでクールに */
-  font-weight: 300 !important;
+  font-family: Georgia, serif !important; 
+  font-weight: 400 !important;
   font-size: 25px !important;
   font-style: italic !important;   
   color: #000000 !important;       
@@ -138,10 +138,11 @@ body.single h1.post-title {
 }
 
 .archive-list a {
-  font-family: Georgia, serif !important;
-  font-style: italic;
+  font-family: "Noto Serif JP", serif !important;
+  font-style: normal !important;
   color: #000000 !important;
   text-decoration: none !important;
+  font-weight: 400 !important;
   font-size: 20px !important; 
   padding-left: 19px !important;
   display: inline-block;
@@ -152,8 +153,8 @@ body.single h1.post-title {
 /* ===== 7. レスポンシブ調整 ===== */
 @media (max-width: 920px) {
   main, header, footer, .top-nav-grid { 
-    padding-left: 20px !important; 
-    padding-right: 20px !important; 
+    padding-left: 0px !important; 
+    padding-right: 0px !important; 
     box-sizing: border-box !important;
   }
   article, .post-title, p, .site-title {
