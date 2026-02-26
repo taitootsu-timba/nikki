@@ -1,19 +1,41 @@
+# ====================================================================
+#  Preparando... Hugo Configuration (GitHub Pages Edition)
+# ====================================================================
+
 baseURL = "https://taitootsu-timba.github.io/nikki/"
-relativeURLs = false
 languageCode = "ja"
 title = "Preparando..."
 theme = "ananke"
-uglyURLs = false
-canonifyURLs = true
 
+# GitHub Pagesのサブディレクトリ配下でリンクを壊さないための設定
+relativeURLs = false
+canonifyURLs = true
+uglyURLs = false
+
+# [params] セクション：サイトの見た目と中身の核
 [params]
+  description = "大津泰人の日記サイト"
   custom_css = ["css/style.css"]
   mainSections = ["posts"]
+  
+  # SNSでシェアされた時に出るデフォルト画像（static/img/に置きな）
+  images = ["img/ogp-default.png"]
+  
+  # Twitter (X) カードの設定。大きな画像を出したいなら summary_large_image 
+  twitterCard = "summary_large_image"
+  # twitterSite = "@YourTwitterID" # アカウントがあるならコメントアウトを外して書きな
 
+# [markup] セクション：HTMLを直接書き込めるようにする魔法
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = true  # これでMarkdownの中にHTMLタグが書ける
 
+# [permalinks] セクション：URLを綺麗に整える
 [permalinks]
   posts = "/posts/:filename/"
+
+
+# [outputs] セクション：RSSフィードを確実に出力させる
+[outputs]
+  home = ["HTML", "RSS"]
