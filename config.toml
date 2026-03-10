@@ -6,6 +6,7 @@ baseURL = "https://taitootsu-timba.github.io/nikki/"
 languageCode = "ja"
 title = "Preparando..."
 theme = "ananke"
+googleAnalytics = "G-JGWML0FWHR"
 
 # GitHub Pagesのサブディレクトリ配下でリンクを壊さないための設定
 relativeURLs = false
