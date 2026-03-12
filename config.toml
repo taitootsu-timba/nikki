@@ -6,7 +6,6 @@ baseURL = "https://taitootsu-timba.github.io/nikki/"
 languageCode = "ja"
 title = "Preparando..."
 theme = "ananke"
-googleAnalytics = "G-JGWML0FWHR"
 
 # GitHub Pagesのサブディレクトリ配下でリンクを壊さないための設定
 relativeURLs = false
@@ -16,6 +15,7 @@ uglyURLs = false
 # [params] セクション：サイトの見た目と中身の核
 [params]
   description = "大津泰人の日記サイト"
+  googleAnalytics = "G-JGWML0FWHR"
   custom_css = ["css/style.css"]
   mainSections = ["posts"]
   
