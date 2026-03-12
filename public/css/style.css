@@ -78,7 +78,7 @@ h1, h2, h3, .post-title {
   font-weight: 400 !important;
   font-size: 25px !important;
   font-style: italic !important;   
-  color: #000000 !important;       
+  color: #000000 !important;        
   margin-right: 1rem !important;
   flex-shrink: 0 !important;
 }
@@ -163,11 +163,16 @@ body.single h1.post-title {
   }
 }
 
+/* ===== 9. 画像のレスポンシブ設定 (追記) ===== */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 2rem auto !important; /* 記事の幅に合わせ、上下に余白をプラス */
+}
+
 /* ===== 8. 不要要素の抹殺 & フッター ===== */
 /* .post-date と .silver は消さないようにリストから抜いておいた */
 .meta, .f6, .ananke-socials, aside, .more-link, header div.bg-black, .bg-black-60, .black-70 { display: none !important; }
 footer { padding: 10rem 0 2rem 0 !important; }
 footer p { text-align: right !important; color: #c1d4cc !important; font-size: 14px !important; font-family: "Bodoni Moda", serif; }
-
-
-
