@@ -34,7 +34,7 @@ uglyURLs = false
 
 # [permalinks] セクション：URLを綺麗に整える
 [permalinks]
-  posts = "/posts/:filename/"
+  posts = "/posts/:contentbasename/"
 
 
 # [outputs] セクション：RSSフィードを確実に出力させる
