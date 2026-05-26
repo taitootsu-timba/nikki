@@ -16,14 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          # recursive（再帰的）から true（直下のサブモジュールのみ）に変更
+          submodules: true
+          
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
+          
       - name: Build
         run: hugo --minify
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
