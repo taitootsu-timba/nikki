@@ -16,8 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # recursive（再帰的）から true（直下のサブモジュールのみ）に変更
-          submodules: true
+          # モバイル編集のバグ（nikki）を完全に無視するため false に変更
+          submodules: false
+          
+      # テーマ（Ananke）だけをピンポイントで確実に読み込むステップを追加
+      - name: Initialize Ananke Theme
+        run: |
+          git submodule update --init --recursive themes/ananke
           
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
