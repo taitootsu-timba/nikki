@@ -7,4 +7,39 @@
     {{ .Content }}
   </div>
 </article>
+<script>
+  (() => {
+    const root = document.querySelector('.post-content');
+    if (!root) return;
+    const urlPattern = /https?:\/\/[^\s<>"']+/g;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (!node.parentElement.closest('a,script,style')) nodes.push(node);
+    }
+    nodes.forEach(node => {
+      const text = node.nodeValue;
+      if (!urlPattern.test(text)) return;
+      urlPattern.lastIndex = 0;
+      const fragment = document.createDocumentFragment();
+      let cursor = 0;
+      text.replace(urlPattern, (url, offset) => {
+        fragment.append(document.createTextNode(text.slice(cursor, offset)));
+        const trailing = (url.match(/[、。）」』】]+$/) || [''])[0];
+        const href = trailing ? url.slice(0, -trailing.length) : url;
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = link.href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        fragment.append(link);
+        if (trailing) fragment.append(document.createTextNode(trailing));
+        cursor = offset + url.length;
+      });
+      fragment.append(document.createTextNode(text.slice(cursor)));
+      node.replaceWith(fragment);
+    });
+  })();
+</script>
 {{ end }}
