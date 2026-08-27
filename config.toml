@@ -31,6 +31,7 @@ uglyURLs = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true  # これでMarkdownの中にHTMLタグが書ける
+      hardWraps = true # 通常の改行もそのまま改行として表示する
 
 # [permalinks] セクション：URLを綺麗に整える
 [permalinks]
